@@ -9,10 +9,6 @@ terraform {
   }
 }
 
-provider "aws" {
-  region = "us-east-1"
-}
-
 # Busca a AMI Ubuntu mais recente
 data "aws_ami" "ubuntu" {
   most_recent = true
@@ -105,13 +101,13 @@ resource "aws_security_group" "ssh" {
 # Instância EC2 Ubuntu
 resource "aws_instance" "ubuntu" {
   ami                         = data.aws_ami.ubuntu.id
-  instance_type               = "t3.micro"
+  instance_type               = var.instance_type
   subnet_id                   = aws_subnet.public.id
   vpc_security_group_ids      = [aws_security_group.ssh.id]
   associate_public_ip_address = true
 
   # Troque pelo nome da sua key pair criada na AWS
-  key_name = "minha-chave"
+  key_name = var.key_name
 
   tags = {
     Name = "ubuntu-terraform"
