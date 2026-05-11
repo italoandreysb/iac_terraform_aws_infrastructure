@@ -14,8 +14,6 @@ This project provisions AWS infrastructure using **Terraform**. It creates:
 
 ## Prerequisites
 
-## Prerequisites
-
 - Terraform >= 1.5
 - AWS credentials configured (`aws configure` or env vars)
 
