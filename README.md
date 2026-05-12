@@ -53,7 +53,7 @@ Set via `.env` (using `TF_VAR_` prefix) or `terraform.tfvars`:
 
 | Variable        | Default     | Required |
 |----------------|-------------|----------|
-| `aws_region`   | `us-east-1` | no       |
+| `aws_region`   | `sa-east-1` | no       |
 | `instance_type`| `t3.micro`  | no       |
 | `key_name`     | —           | yes      |
 
