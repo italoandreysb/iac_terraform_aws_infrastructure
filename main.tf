@@ -1,5 +1,5 @@
 
-# Busca a AMI Ubuntu mais recente
+# Search for the latest Ubuntu AMI.
 data "aws_ami" "ubuntu" {
   most_recent = true
 
@@ -29,7 +29,7 @@ resource "aws_internet_gateway" "gw" {
   }
 }
 
-# Subnet pública
+# Public Subnet
 resource "aws_subnet" "public" {
   vpc_id                  = aws_vpc.main.id
   cidr_block              = "10.0.1.0/24"
@@ -54,13 +54,13 @@ resource "aws_route_table" "public" {
   }
 }
 
-# Associação subnet -> route table
+# Subnet-to-route table association
 resource "aws_route_table_association" "public" {
   subnet_id      = aws_subnet.public.id
   route_table_id = aws_route_table.public.id
 }
 
-# Security Group liberando SSH
+# Security Group Allowing SSH access
 resource "aws_security_group" "ssh" {
   name        = "allow-ssh"
   description = "Permite acesso SSH"
@@ -88,7 +88,7 @@ resource "aws_security_group" "ssh" {
   }
 }
 
-# Instância EC2 Ubuntu
+# Ubuntu EC2 Instance
 resource "aws_instance" "ubuntu" {
   ami                         = data.aws_ami.ubuntu.id
   instance_type               = var.instance_type
@@ -96,7 +96,7 @@ resource "aws_instance" "ubuntu" {
   vpc_security_group_ids      = [aws_security_group.ssh.id]
   associate_public_ip_address = true
 
-  # Troque pelo nome da sua key pair criada na AWS
+  # Replace with the name of your key pair created in AWS
   key_name = var.key_name
 
   tags = {
@@ -104,7 +104,7 @@ resource "aws_instance" "ubuntu" {
   }
 }
 
-# Exibe IP público
+# Show Public IP
 output "ec2_public_ip" {
   value = aws_instance.ubuntu.public_ip
 }
