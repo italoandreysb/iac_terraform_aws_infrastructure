@@ -18,6 +18,7 @@ This project provisions AWS infrastructure using **Terraform**. It creates:
 - AWS credentials configured (`aws configure` or env vars)
 
 ## Quick Start
+1. Generate the access key with secret access key (IAM) and EC2 key on AWS Console
 
 ```bash
 cp .env_example .env
