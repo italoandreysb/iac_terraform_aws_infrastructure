@@ -17,6 +17,23 @@ This project provisions AWS infrastructure using **Terraform**. It creates:
 - Terraform >= 1.5
 - AWS credentials configured (`aws configure` or env vars)
 
+### Install the AWS Key
+```
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+rm -rf awscliv2.zip 
+aws configure
+```
+
+Insira:
+
+- Access Key (generate in AWS console)
+- Secret Key
+- região (us-east-1)
+- formato (json)
+
+
 ## Quick Start
 1. In the AWS console, generate an Access Key and Secret Access Key using IAM.
 2. In the AWS console, generate an EC2 Key Pair in the same region where the infrastructure will be deployed.
@@ -46,18 +63,3 @@ Set via `.env` (using `TF_VAR_` prefix) or `terraform.tfvars`:
 terraform destroy
 ```
 
-### Install the AWS Key
-```
-curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-unzip awscliv2.zip
-sudo ./aws/install
-rm -rf awscliv2.zip 
-aws configure
-```
-
-Insira:
-
-- Access Key (generate in AWS console)
-- Secret Key
-- região (us-east-1)
-- formato (json)
