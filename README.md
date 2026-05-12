@@ -10,7 +10,7 @@ This project provisions AWS infrastructure using **Terraform**. It creates:
 - An **output** with the EC2 public IP
 
 **Required variable:** `key_name` (your EC2 key pair name).
-**Optional variables:** `aws_region` (default `us-east-1`) and `instance_type` (default `t3.micro`).
+**Optional variables:** `aws_region` (default `sa-east-1`) and `instance_type` (default `t3.micro`).
 
 ## Prerequisites
 
