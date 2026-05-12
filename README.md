@@ -5,7 +5,7 @@ This project provisions AWS infrastructure using **Terraform**. It creates:
 - A **VPC** (`10.0.0.0/16`) with an Internet Gateway
 - A **public subnet** (`10.0.1.0/24`) with auto-assign public IP
 - A **route table** with a default route to the Internet Gateway
-- A **security group** allowing SSH (port 22) from anywhere
+- A **security group** allowing SSH (port 22) from anywhere (access only EC2 Key)
 - An **EC2 instance** running Ubuntu 22.04 (configurable instance type, default `t3.micro`) in the public subnet
 - An **output** with the EC2 public IP
 
