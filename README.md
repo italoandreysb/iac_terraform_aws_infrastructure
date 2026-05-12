@@ -30,7 +30,7 @@ Insira:
 
 - Access Key (generate in AWS console)
 - Secret Key
-- região (us-east-1)
+- região (sa-east-1)
 - formato (json)
 
 
